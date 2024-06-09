@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobCl.MainPage">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".25*"/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".25*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CheckBalance"
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    Text="Проверить баланс"
+                    Pressed="CheckBalance_Pressed"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="0,200,0,20"/>
+            <Button x:Name="Scanner" 
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    Text="Отсканировать QR-код" 
+                    Pressed="Scanner_Pressed"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Margin="0,0,0,20"/>
+            <Button x:Name="SpendTokens"
+                    HorizontalOptions="Center"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    WidthRequest="300"
+                    Text="Потратить жетоны"
+                    Pressed="SpendTokens_Pressed"/>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

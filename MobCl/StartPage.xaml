@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobCl.StartPage"
+             Title="Авторизация">
+    <VerticalStackLayout Margin="20">
+        <Entry Placeholder="Введите логин"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               FontSize="20"
+               Margin="0, 10, 0, 10"
+               TextChanged="Login_Changed"/>
+        <Entry Placeholder="Введите пароль"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               FontSize="20"
+               Margin="0, 10, 0, 10"
+               TextChanged="Password_Changed"
+               IsPassword="True"/>
+        <Label HorizontalOptions="End"
+               Text="Я не зарегистрирован(-а)"
+               TextDecorations="Underline">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                      NumberOfTapsRequired="1"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Button Text="Войти"
+                Margin="0, 10, 0, 0"
+                Clicked="Button_Clicked"
+                />
+    </VerticalStackLayout>
+</ContentPage>

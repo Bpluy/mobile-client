@@ -34,7 +34,16 @@ public partial class Scanner : ContentPage
         {
             barcodeReader.IsDetecting = false;
             barcodeReader.IsEnabled = false;
-            var message = Encoding.UTF8.GetString(Convert.FromBase64String(result.Value));
+            var message = "";
+            try
+            {
+                message = Encoding.UTF8.GetString(Convert.FromBase64String(result.Value));
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ошибка", "Отсканирован некорректный QR-код.", "OK");
+                await Navigation.PopModalAsync();
+            }
             if (message.Split(' ')[0] == "startGame")
             {
                 message += " " + login;

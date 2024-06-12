@@ -4,14 +4,8 @@
              x:Class="MobCl.RegisterPage"
              Title="Регистрация">
     <VerticalStackLayout Margin="20">
-        <Label 
-            Text="Регистрация"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="32"
-            Margin=" 0, 20, 0, 40"/>
         <Entry Placeholder="Введите логин"
-               Margin="20,10,20,10"
+               Margin="20,70,20,10"
                VerticalOptions="Center"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"

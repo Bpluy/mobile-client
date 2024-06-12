@@ -46,12 +46,24 @@ public partial class Scanner : ContentPage
             }
             if (message.Split(' ')[0] == "startGame")
             {
+                var port = 11333;
+                var ip = "95.174.93.97";
+                using var sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                await sock.ConnectAsync(ip, port);
+
+                var respBytes = new byte[1024];
+                var Bytes = await sock.ReceiveAsync(respBytes);
+                string resp = Encoding.UTF8.GetString(respBytes, 0, Bytes);
+
+                var msgBytes = Encoding.UTF8.GetBytes(EncryptString("checkSlotName " + message.Split(' ')[1]));
+                await sock.SendAsync(msgBytes);
+
+                Bytes = await sock.ReceiveAsync(respBytes);
+                resp = Encoding.UTF8.GetString(respBytes, 0, Bytes);
                 message += " " + login;
                 bool confirmation = await DisplayAlert("Подтвердите действие", "Вы точно хотите начать игру на автомате №" + message.Split(' ')[1] + "?", "Да", "Нет");
                 if (confirmation)
                 {
-                    var port = 11333;
-                    var ip = "95.174.93.97";
                     using var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     try
                     {
